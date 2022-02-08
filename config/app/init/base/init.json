@@ -1,8 +1,8 @@
 {
   "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@solid/community-server/^2.0.0/components/context.jsonld",
   "import": [
-    "files-scs:config/app/init/initializers/logger.json",
-    "files-scs:config/app/init/initializers/server.json"
+    "scs:config/app/init/initializers/logger.json",
+    "scs:config/app/init/initializers/server.json"
   ],
   "@graph": [
     {
