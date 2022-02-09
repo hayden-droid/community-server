@@ -9,7 +9,8 @@
   "@graph": [
     {
       "@id": "urn:solid-server:default:IdentityProviderHttpHandler",
-      "IdentityProviderHttpHandler:_args_interactionRoutes": [
+      "@type": "IdentityProviderHttpHandler",
+      "args_interactionRoutes": [
         { "@id": "urn:solid-server:auth:password:ForgotPasswordRoute" },
         { "@id": "urn:solid-server:auth:password:LoginRoute" },
         { "@id": "urn:solid-server:auth:password:ResetPasswordRoute" },

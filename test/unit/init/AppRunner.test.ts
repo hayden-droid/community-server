@@ -94,6 +94,7 @@ describe('AppRunner', (): void => {
         dumpErrorState: true,
         logLevel: 'info',
         mainModulePath: joinFilePath(__dirname, '../../../'),
+        typeChecking: false,
       });
       expect(manager.configRegistry.register).toHaveBeenCalledTimes(1);
       expect(manager.configRegistry.register)
@@ -143,6 +144,7 @@ describe('AppRunner', (): void => {
         dumpErrorState: true,
         logLevel: 'debug',
         mainModulePath: '/var/cwd/module/path',
+        typeChecking: false,
       });
       expect(manager.configRegistry.register).toHaveBeenCalledTimes(1);
       expect(manager.configRegistry.register).toHaveBeenCalledWith('/var/cwd/myconfig.json');
@@ -188,6 +190,7 @@ describe('AppRunner', (): void => {
         dumpErrorState: true,
         logLevel: 'debug',
         mainModulePath: '/var/cwd/module/path',
+        typeChecking: false,
       });
       expect(manager.configRegistry.register).toHaveBeenCalledTimes(1);
       expect(manager.configRegistry.register).toHaveBeenCalledWith('/var/cwd/myconfig.json');
@@ -249,6 +252,7 @@ describe('AppRunner', (): void => {
         dumpErrorState: true,
         logLevel: 'debug',
         mainModulePath: '/var/cwd/module/path',
+        typeChecking: false,
       });
       expect(manager.configRegistry.register).toHaveBeenCalledTimes(1);
       expect(manager.configRegistry.register).toHaveBeenCalledWith('/var/cwd/myconfig.json');
