@@ -420,11 +420,20 @@ export function addHeader(response: HttpResponse, name: string, value: string | 
  *
  * @param contentType - The media type of the content-type header
  *
- * @returns The parsed media type of the content-type
+ * @returns The parsed media type of the content-type and
  */
-export function parseContentType(contentType: string): { type: string } {
+export function parseContentType(contentType: string): { type: string; parameters: Record<string, string> } {
   const contentTypeValue = /^\s*([^;\s]*)/u.exec(contentType)![1];
-  return { type: contentTypeValue };
+  const parameters: Record<string, string> = {};
+  // For each parameter pair (if any), iterate
+  contentType.split(';').slice(1).forEach((param): void => {
+    // Match any key=value pair (spaces around `=` not allowed)
+    const res = /^\s*([^\s]+)="?([^\s"]+)"?\s*/u.exec(param);
+    if (res && res.length === 3) {
+      parameters[res[1].toLowerCase()] = res[2];
+    }
+  });
+  return { type: contentTypeValue, parameters };
 }
 
 /**

@@ -190,6 +190,7 @@ describe('HeaderUtil', (): void => {
 
   describe('#parseContentType', (): void => {
     const contentTypeTurtle = 'text/turtle';
+    const charset = 'UTF-8';
     it('handles single content-type parameter (with leading and trailing whitespaces).', (): void => {
       expect(parseContentType('text/turtle').type).toEqual(contentTypeTurtle);
       expect(parseContentType('text/turtle ').type).toEqual(contentTypeTurtle);
@@ -198,6 +199,8 @@ describe('HeaderUtil', (): void => {
 
     it('handles multiple content-type parameters.', (): void => {
       expect(parseContentType('text/turtle; charset=UTF-8').type).toEqual(contentTypeTurtle);
+      expect(parseContentType('text/turtle; charset=UTF-8; test=ok').parameters!.charset).toEqual(charset);
+      expect(parseContentType('text/turtle; charset=UTF-8; test=ok').parameters!.test).toBe('ok');
     });
   });
   describe('#parseForwarded', (): void => {
